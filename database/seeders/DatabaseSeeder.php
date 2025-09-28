@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         \App\Models\User::factory(5)->create();
+        \App\Models\Listing::factory(6)->create();
 
         Listing::factory(6)->create();
 
@@ -37,7 +38,7 @@ class DatabaseSeeder extends Seeder
         //     'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam minima et illo reprehenderit quas possimus voluptas repudiandae cum expedita, eveniet aliquid, quam illum quaerat consequatur! Expedita ab consectetur tenetur delensiti?'
         // ]);
 
-        User::factory(10)->create([
+        User::factory()->create([
             'name' => 'Jim',
             'email' => 'Jim@gmail.com',
         ]);
