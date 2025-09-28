@@ -14,12 +14,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(5)->create();
-
-        $user = User::factory()->create([
-            'name' => 'Jim',
-            'email' =>  'jim@gmail.com'
-        ]);
+        \App\Models\User::factory(5)->create();
+        \App\Models\Listing::factory(6)->create();
 
         Listing::factory(6)->create([
             'user_id' => $user->id
@@ -44,5 +40,10 @@ class DatabaseSeeder extends Seeder
         // 'website' => 'https://www.techsolutions.com',
         // 'description' => 'We’re looking for a full-stack engineer with experience in Laravel and Vue.js. Flexible hours and remote-first culture.'
         // ]);
+
+        User::factory()->create([
+            'name' => 'Jim',
+            'email' => 'Jim@gmail.com',
+        ]);
     }
 }
