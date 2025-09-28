@@ -14,32 +14,35 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        \App\Models\User::factory(5)->create();
+        // User::factory(5)->create();
 
-        Listing::factory(6)->create();
-
-        // Listing::create([
-        //     'title' => 'Laravel Senior Developer',
-        //     'tags' => 'laravel, javascript',
-        //     'company' => 'Acme Corp',
-        //     'location' => 'Boston, MA',
-        //     'email' => 'email1@email.com',
-        //     'website' => 'https://www.acme.com',
-        //     'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam minima et illo reprehenderit quas possimus voluptas repudiandae cum expedita, eveniet aliquid, quam illum quaerat consequatur! Expedita ab consectetur tenetur delensiti?'
-        // ]);
-        // Listing::create([
-        //     'title' => 'Full-Stack Engineer',
-        //     'tags' => 'laravel, backend ,api',
-        //     'company' => 'Stark Industries',
-        //     'location' => 'New York, NY',
-        //     'email' => 'email2@email.com',
-        //     'website' => 'https://www.starkindustries.com',
-        //     'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam minima et illo reprehenderit quas possimus voluptas repudiandae cum expedita, eveniet aliquid, quam illum quaerat consequatur! Expedita ab consectetur tenetur delensiti?'
-        // ]);
-
-        User::factory(10)->create([
+        $user = User::factory()->create([
             'name' => 'Jim',
-            'email' => 'Jim@gmail.com',
+            'email' =>  'jim@gmail.com'
         ]);
+
+        Listing::factory(6)->create([
+            'user_id' => $user->id
+        ]);
+
+        // Listing::create([
+        // 'title' => 'Laravel Senior Developer',
+        // 'tags' => 'laravel, javascript',
+        // 'company' => 'Acme Corp',
+        // 'location' => 'Boston, MA',
+        // 'email' => 'email1@acme.com',
+        // 'website' => 'https://www.acme.com',
+        // 'description' => 'Join our team as a Laravel Senior Developer. You will be responsible for backend architecture and API development.'
+        // ]);
+
+        // Listing::create([
+        // 'title' => 'Full-Stack Engineer',
+        // 'tags' => 'php, vue, css',
+        // 'company' => 'Tech Solutions Ltd.',
+        // 'location' => 'Remote',
+        // 'email' => 'jobs@techsolutions.com',
+        // 'website' => 'https://www.techsolutions.com',
+        // 'description' => 'We’re looking for a full-stack engineer with experience in Laravel and Vue.js. Flexible hours and remote-first culture.'
+        // ]);
     }
 }
